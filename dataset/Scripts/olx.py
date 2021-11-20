@@ -4,18 +4,18 @@ import csv
 from scrapy.crawler import CrawlerProcess
 
 class olx(scrapy.Spider):
-    name = 'olx_laptop_scrapper'
+    name = 'olx_mobile_scrapper'
     
-    url = 'https://www.olx.in/api/relevance/v2/search?facet_limit=100&lang=en&location=4058659&location_facet_limit=20&page=1&platform=web-mobile&query=laptops&spellcheck=true&user=17bcb4ef84ex75958c08'
+    url = 'https://www.olx.in/api/relevance/v2/search?facet_limit=100&isSearchCall=true&lang=en&location=1000001&location_facet_limit=20&page=2&platform=web-desktop&query=laptops&spellcheck=true&user=17c2669ca83x2d9787a6'
     
     headers = {
-            'user-agent' : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Mobile Safari/537.36'
+            'user-agent' : 'Mozilla/5.0 (X11; Linux x86_64; rv:92.0) Gecko/20100101 Firefox/92.0'
         }
     
 
     def __init__(self):
         with open('results.csv', 'w') as csv_file:
-            csv_file.write('title,description,location,features,date,price\n')
+            csv_file.write('title,description,date,price,img\n')
     
     def start_requests(self):
         
@@ -28,14 +28,16 @@ class olx(scrapy.Spider):
         data = json.loads(data)
         
         for offer in data['data']:
+            print()
             items = {
                 'title': offer['title'],
                 'description': offer['description'].replace('\n', ' '),
                 'date': offer['display_date'],
-                'price': offer['price']['value']['display']
+                'price': offer['price']['value']['display'],
+                'img': offer['images'][0]['url']
             }
             
-            print(json.dumps(items, indent=2))
+            print(json.dumps(offer, indent=2))
             
             with open('results.csv', 'a') as csv_file:
                 writer = csv.DictWriter(csv_file, fieldnames=items.keys())
