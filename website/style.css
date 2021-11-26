@@ -1,0 +1,11 @@
+body{
+    color:#4d0303;
+    background-color:#A3A6BA; 
+}
+
+.show{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
