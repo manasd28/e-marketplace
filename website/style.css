@@ -1,6 +1,7 @@
 body{
     color:#4d0303;
     background-color:#A3A6BA; 
+    font-family:'Times New Roman';
 }
 
 .show{
@@ -8,4 +9,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
+}
+
+#text-block{
+    font-size:25px;
 }
