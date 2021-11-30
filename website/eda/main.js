@@ -8,7 +8,8 @@ var info = {
     'laptop-btn6': 'Graph depicting the price distribution on various websites',
     'laptop-btn7': 'Graph showing heatmap of Processor on X-axis, RAM on y axis and count as colors',
     'laptop-btn8': 'Graph depicting relation between SSD availaible and Price Range',
-    // Camera Info (Seperate by commas!)
+    'ac-btn1': 'fadfa',
+    'tv-btn1': 'j0fadffadf'
 }
 
 document.querySelectorAll(".btn").forEach((item) => {

@@ -42,4 +42,4 @@ regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 
 from sklearn.metrics import mean_squared_error
-print(mean_squared_error(y_test, y_pred))
+print(np.sqrt(mean_squared_error(y_test, y_pred)))
