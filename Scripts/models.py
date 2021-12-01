@@ -1,6 +1,7 @@
 import pandas  as pd
 import numpy as np
 import xgboost
+import pickle
 
 df1 = pd.read_csv('/home/manasd28/Desktop/e-marketplace/dataset/cleansed_data/amazon/laptop.csv').iloc[:, 1:]
 df2 = pd.read_csv('/home/manasd28/Desktop/e-marketplace/dataset/cleansed_data/flipkart/laptop.csv').iloc[:, 1:]
@@ -33,7 +34,7 @@ from sklearn.linear_model import Lasso
 regressor = Lasso(max_iter=100000)
 
 y = df.iloc[:,0]
-X = df.iloc[:,1:]
+X = df.iloc[:,2:5]
 
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y)
@@ -43,3 +44,6 @@ y_pred = regressor.predict(X_test)
 
 from sklearn.metrics import mean_squared_error
 print(np.sqrt(mean_squared_error(y_test, y_pred)))
+print(df.columns)
+
+pickle.dump(regressor, open('laptop-model.pkl', 'wb'))
