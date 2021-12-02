@@ -13,7 +13,7 @@ def predict_laptop():
     '''
     For rendering results on HTML GUI
     '''
-    model = pickle.load(open('laptop-model.pkl', 'rb'))
+    model = pickle.load(open('mobile-model.pkl', 'rb'))
     int_features = [x for x in request.form.values()][:3]
     final_features = np.expand_dims(np.array(int_features), axis = 0)
     print(final_features.shape)
@@ -24,4 +24,4 @@ def predict_laptop():
     return render_template('index.html', prediction_text='Laptop Price Should be ₹ {}'.format(output))
 
 if __name__ == "__main__":
-    app.run(port=8001,debug=True)
+    app.run(port=8002,debug=True)

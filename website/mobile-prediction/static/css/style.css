@@ -1,6 +1,6 @@
 body{
     margin:0;
-    background-image: url_for('static', filename='images/laptop.jpeg');
+    background-image: url('./mobile.jpeg');
     background-color:rgb(19, 14, 49);
     font-family: Century Gothic;
     font-size: 20px;
@@ -31,8 +31,8 @@ h1{
     color: #000;
 }
 
-.laptop-image{
-    background-image: url_for('static', filename='images/laptop.jpeg');
+.mobile-image{
+    background-image: url('./mobile.jpeg');
     background-size: cover;
     background-position:center center;
     height: 100vh;
