@@ -30,10 +30,13 @@ import random
 # from sklearn.svm import SVR
 # from sklearn.neighbors import KNeighborsRegressor
 # from sklearn.linear_model import Lasso
+# from sklearn.neighbors import kNeighborClassifier
 
 # # regressor = SVR()
 # # regressor = KNeighborsRegressor(10)
 # regressor = Lasso(max_iter=100000)
+
+# classifier = kNeighborClassifier()
 
 # y = df.iloc[:,0]
 # X = df.iloc[:,2:5]
